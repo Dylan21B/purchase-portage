@@ -1,0 +1,29 @@
+{
+  "name": "purchase-portage",
+  "version": "1.0.0",
+  "description": "A delivery scheduling application",
+  "main": "app/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Greg-Turner/purchase-portage.git"
+  },
+  "author": "Greg Turner <greg.turner.it.hero@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Greg-Turner/purchase-portage/issues"
+  },
+  "homepage": "https://github.com/Greg-Turner/purchase-portage#readme",
+  "devDependencies": {
+    "firebase": "^4.7.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "gruntify-eslint": "^4.0.0"
+  },
+  "dependencies": {
+    "angular": "^1.6.7",
+    "angular-route": "^1.6.7"
+  }
+}
