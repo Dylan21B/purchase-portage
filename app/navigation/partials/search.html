@@ -1,0 +1,7 @@
+<!--    Allow users to immediately enter a search in the input field. 
+        Search should filter invoices and schedule for name or invoice number. 
+        The resulting invoice and/or scheduled delivery should be displayed with a button
+        to take user to the invoice or scheduled delivery. -->
+<span ng-controller="navCtrl">
+    <input type="text" ng-keypress="finder($event)" ng-model="searchString" placeholder="Search">
+</span>
