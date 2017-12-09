@@ -1,7 +1,8 @@
 <ul ng-controller="navCtrl">
-        <li><a href="/#!/invoices/main">Invoices</a></li>
-        <li><a href="/#!/schedule/main">Schedule</a></li>
-        <li><span ng-include="'app/navigation/partials/search.html'"></span></li>
+        <li><a href="/#!/invoices/add">Add Invoices</a></li>
+        <!-- <li><a href="/#!/schedule/main">Schedule</a></li> -->
+        <li><a href="/#!/calendar/setup">Calendar setup</a></li>
+        <!-- <li><span ng-include="'app/navigation/partials/search.html'"></span></li> -->
     
         <li class="align-right">
             <span ng-if="isAuthenticated()">

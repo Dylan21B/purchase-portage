@@ -1,0 +1,14 @@
+<!-- This page shows the details of an invoice to a user. It should also identify when
+    it is on the schedule or that it is unscheduled as of yet. There should be an
+    option to set the invoice to non-delivery sale. -->
+    <h3>{{ invoice.firstName }} {{ invoice.lastName }}</h3>
+    
+    <p>Invoice #: {{ invoice.invoiceNum }} Purchase Date: {{ invoice.purchaseDate }}</p>
+    <p>{{ invoice.street }}</p>
+    <p>{{ invoice.city }} {{ invoice.state }}, {{ invoice.zip }}</p>
+    <p>Best Phone #: {{ invoice.phone }}</p>
+    <p>Best Email Address: {{ invoice.email }}</p>
+    <p>Estimated Delivery Installation Labor Time: {{ invoice.labor }}</p>
+    <p>(Labor Time of 0 indicates customer plans to pick up merchandice.) </p>
+    <button>Edit Invoice</button>
+    <button>Cancel Sale</button>

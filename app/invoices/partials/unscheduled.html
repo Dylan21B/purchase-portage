@@ -1,0 +1,5 @@
+<h3>Customer Pickup Invoices</h3>
+
+<div ng-repeat="ticket in invoice | filter: {labor: 0}">
+    <a href="#!/invoices/detail/{{ invoice.id }}">{{ invoice.invoiceNum }} {{ invoice.purchaseDate }}{{ invoice.firstName }} {{ invoice.lastName }} {{ invoice.phone }}</a>
+</div>
