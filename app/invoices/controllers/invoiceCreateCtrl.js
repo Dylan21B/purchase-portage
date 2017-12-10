@@ -165,10 +165,10 @@ angular
         } else {
             $scope.warning.email = " "
         }
-
+        const purchaseDateFormat = $scope.newInvoice.purchaseDate.getMonth() + " " + $scope.newInvoice.purchaseDate.getDate() + ", " + $scope.newInvoice.purchaseDate.getFullYear()
         const invoice = {
             "invoiceNum": $scope.newInvoice.invoiceNum,
-            "purchaseDate": $scope.newInvoice.purchaseDate,
+            "purchaseDate": purchaseDateFormat,
             "firstName": $scope.newInvoice.firstName,
             "lastName": $scope.newInvoice.lastName,
             "street": $scope.newInvoice.street,
@@ -179,7 +179,6 @@ angular
             "email": $scope.newInvoice.email,
             "labor": $scope.newInvoice.labor
         }
-        console.log(invoice)
         /**
          * Use the factory to POST to Firebase then clear the fields
          */
@@ -198,7 +197,7 @@ angular
         })
     
         /**
-         * If POST was successful, retrieve new list of invoices
+         * If POST was successful, use alert to inform user the transaction was successful
          */
         .then(() => {
             alert("INVOICE SAVED")

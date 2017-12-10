@@ -1,1 +1,10 @@
 <h2>Current Schedule</h2>
+
+<!-- CURRENT WEEK - paginate by week showing the last name, city, and invoice of 
+    each delivery. Remaining hours available showing at bottom of each day. -->
+
+    <div ng-repeat="apointment in reservations">
+        <a href="#!/employees/detail/{{ person.id }}">{{ person.firstName }} {{ person.lastName }}</a>
+    </div>
+    
+<!-- SCHEDULE DELIVERY - Calendar with full days and holidays designated. Other days show hours available. -->

@@ -1,7 +1,7 @@
-// module to display current schedule in Firebase
+// module to display current reservations in Firebase
 angular
 .module("purchase-portage")
-.factory("scheduleFactory", function ($http) {
+.factory("reservationsFactory", function ($http) {
     return Object.create(null, {
         "cache": {
             value: null,
@@ -11,7 +11,7 @@ angular
         //     value: function () {
         //         return $http({
         //             method: "GET",
-        //             url: "https://purchase-portage.firebaseio.com/schedule/.json"
+        //             url: "https://purchase-portage.firebaseio.com/reservations/.json"
         //         }).then(response => {
         //             const data = response.data
 
@@ -28,7 +28,7 @@ angular
         //     value: function (key) {
         //         return $http({
         //             method: "GET",
-        //             url: `https://purchase-portage.firebaseio.com/schedule/${key}/.json`
+        //             url: `https://purchase-portage.firebaseio.com/reservations/${key}/.json`
         //         }).then(response => {
         //             return response.data
         //         })
@@ -38,7 +38,7 @@ angular
         //     value: function (key) {
         //         return $http({
         //             method: "DELETE",
-        //             url: `https://purchase-portage.firebaseio.com/schedule/${key}/.json`
+        //             url: `https://purchase-portage.firebaseio.com/reservations/${key}/.json`
         //         })
         //     }
         // },
@@ -57,18 +57,18 @@ angular
 
         //         return $http({
         //             method: "PUT",
-        //             url: `https://purchase-portage.firebaseio.com/schedule/${key}/.json`,
+        //             url: `https://purchase-portage.firebaseio.com/reservations/${key}/.json`,
         //             data: delivery
         //         })
         //     }
         // },
-        // "reschedule": {
+        // "rereservations": {
         //     value: function (delivery, key) {
         //         delivery.employmentEnd = Date.now()
 
         //         return $http({
         //             method: "PUT",
-        //             url: `https://purchase-portage.firebaseio.com/schedule/${key}/.json`,
+        //             url: `https://purchase-portage.firebaseio.com/reservations/${key}/.json`,
         //             data: delivery
         //         })
         //     }
