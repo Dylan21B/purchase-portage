@@ -45,6 +45,10 @@ angular
                     url: "https://purchase-portage.firebaseio.com/reservations/.json",
                 }).then(response => {
                     const data = response.data
+                    // Put the reservations database into cache to reduce firebase queries and speed the use of the data
+                    this.cache = Object.keys(data).map(key => {
+                        data[key].id = key
+                        return data[key]
                 })
             }
         }

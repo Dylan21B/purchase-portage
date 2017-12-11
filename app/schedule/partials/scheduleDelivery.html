@@ -12,8 +12,8 @@
 
 <div>
     Select the how far out to display availability: <input type="date" ng-model="endDate">
-    <p>Days with large enough gaps in the schedule to accomodate this delivery between {{ tomorrow }} and {{ endDate }}:</p>
+    <p>Days with large enough gaps in the schedule to accomodate this delivery between {{ tomorrow.weekDay }} {{ tomorrow.month }} {{tomorrow.dayNumber }}, {{ tomorrow.year }} and {{ searchEnd.month }} {{ searchEnd.dayNumber }}, {{ searchEnd.year }}:</p>
 </div>
 <div ng-repeat="day in days">
-        <a href="#">{{ availableDay.dayOfWeek }} {{ availableDay.month }} {{ availableDay.dayNumber }} {{ availableDay.year }}</a>
+        <a href="#">{{ day.dayOfWeek }} {{ day.month }} {{ day.dayNumber }} {{ day.year }}</a>
 </div>
