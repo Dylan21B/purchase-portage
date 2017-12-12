@@ -5,15 +5,18 @@
     <p>Invoice #: {{ invoice.invoiceNum }} Purchase Date: {{ invoice.purchaseDate }}</p>
     <p>{{ invoice.street }}</p>
     <p>{{ invoice.city }} {{ invoice.state }}, {{ invoice.zip }}</p>
+    <!-- Would like to format the displayed phone to (XXX) XXX-XXXX -->
     <p>Best Phone #: {{ invoice.phone }}</p>
     <p>Best Email Address: {{ invoice.email }}</p>
+    <!-- Would like to format the displayed labor time to XX hours XX minutes -->
     <p>Estimated Delivery Installation Labor Time: {{ invoice.labor }}</p>
 </div>
 
 <div>
     Select the how far out to display availability: <input type="date" ng-model="endDate">
-    <p>Days with large enough gaps in the schedule to accomodate this delivery between {{ tomorrow.weekDay }} {{ tomorrow.month }} {{tomorrow.dayNumber }}, {{ tomorrow.year }} and {{ searchEnd.month }} {{ searchEnd.dayNumber }}, {{ searchEnd.year }}:</p>
+    <button type="button" ng-click="searchAvailability()">Search</button>
+    <div id="gapResults" class="hidden">Available time in each day::</div>
 </div>
 <div ng-repeat="day in days">
-        <a href="#">{{ day.dayOfWeek }} {{ day.month }} {{ day.dayNumber }} {{ day.year }}</a>
+        {{ day.dayOfWeek }} {{ day.month }}/{{ day.dayNumber }} Total Available Time: {{ day.availableTime }} <a href="#!/schedule/itinerary/{{ day.date }}">View Day</a>
 </div>

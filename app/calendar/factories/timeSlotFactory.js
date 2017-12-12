@@ -10,6 +10,17 @@ angular
                     data: interval
                 })
             }
+        },
+        "list": {
+            value: function () {
+                return $http({
+                    method: "GET",
+                    url: "https://purchase-portage.firebaseio.com/timeSlots/.json",
+                }).then(response => {
+                    const calendar = response.data
+                    return calendar
+                })
+            }
         }
     })
 })

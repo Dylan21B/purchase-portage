@@ -8,11 +8,20 @@
     <link rel="stylesheet" href="../styles/layout.css">
 </head>
 <body ng-app="purchase-portage" ng-cloak>
-        
+    
+    <!-- Navigation Bar -->
     <nav ng-include="'app/navigation/partials/navigation.html'"></nav>
 
+    <!-- Section reserved for details of an object -->
+    <!-- <div id="details">
+        <div ng-include="'app/invoice/partials/detail.html'"></div>
+        <div ng-include="'app/schedule/partials/delivery.html'"></div>
+    </div> -->
+
+    <!-- Section for views of lists and actions (buttons, etc.) -->
     <div ng-view></div>
 
+    <!-- Footer of page -->
     <nav ng-include="'app/navigation/partials/footer.html'"></nav>
                 
     <script src="./lib/node_modules/firebase/firebase.js"></script>
@@ -33,7 +42,10 @@
     <script src="./app/invoices/controllers/invoiceCtrl.js"></script>
     <script src="./app/invoices/controllers/invoiceCreateCtrl.js"></script>
     <script src="./app/invoices/controllers/invoiceDetailCtrl.js"></script>
-    <!-- <script src="./app/schedule/controllers/reservationsCtrl.js"></script> -->
+
+    <script src="./app/schedule/factories/reservationsFactory.js"></script>
+    <script src="./app/schedule/controllers/reservationsCreateCtrl.js"></script>
+    <script src="./app/schedule/controllers/reservationsCtrl.js"></script>
     <!-- <script src="./app/schedule/controllers/appointmentDetailCtrl.js"></script> -->
 
 </body>

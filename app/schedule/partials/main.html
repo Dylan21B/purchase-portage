@@ -3,8 +3,12 @@
 <!-- CURRENT WEEK - paginate by week showing the last name, city, and invoice of 
     each delivery. Remaining hours available showing at bottom of each day. -->
 
-    <div ng-repeat="apointment in reservations">
+    <!-- <div ng-repeat="apointment in reservations">
         <a href="#!/employees/detail/{{ person.id }}">{{ person.firstName }} {{ person.lastName }}</a>
-    </div>
+    </div> -->
     
-<!-- SCHEDULE DELIVERY - Calendar with full days and holidays designated. Other days show hours available. -->
+<!-- SCHEDULE DELIVERY - List of Invoices that have labor over 0 that are not in the reservations database (no delivery scheduled yet). -->
+<h3>Invoices needing deliveries scheduled:</h3>
+    <div ng-repeat="ticket in invNeedDelivery">
+        {{ ticket.invoiceNum }}: {{ ticket.lastName }}, {{ ticket.firstName }} - {{ ticket.city }}, {{ ticket.state }} Labor Time: {{ ticket.labor }} <a href="#!/schedule/delivery/{{ ticket.id }}"> schedule</a>
+    </div>

@@ -57,16 +57,31 @@ angular.module("purchase-portage").config(function ($routeProvider) {
             controller: 'invoiceListCtrl',
             resolve: { isAuth }
         })
-        .when('/invoices/detail/:invoiceID', {
-            templateUrl: 'app/invoices/partials/detail.html',
-            controller: 'invoiceDetailCtrl',
-            resolve: { isAuth }
-        })
+        // .when('/invoices/detail/:invoiceID', {
+        //     templateUrl: 'app/invoices/partials/detail.html',
+        //     controller: 'invoiceDetailCtrl',
+        //     resolve: { isAuth }
+        // })
         // .when('/schedule/detail/:scheduleID', {
         //     templateUrl: 'app/schedule/partials/detail.html',
         //     controller: 'scheduleDetailCtrl',
         //     resolve: { isAuth }
         // })
+        .when('/schedule/main', {
+            templateUrl: 'app/schedule/partials/main.html',
+            controller: 'reservationsCtrl',
+            resolve: { isAuth }
+        })
+        .when('/schedule/delivery/:invoiceID', {
+            templateUrl: 'app/schedule/partials/scheduleDelivery.html',
+            controller: 'reservationsCreateCtrl',
+            resolve: { isAuth }
+        })
+        .when('/schedule/itinerary/:date', {
+            templateUrl: 'app/schedule/partials/itinerary.html',
+            controller: 'reservationsItineraryCtrl',
+            resolve: { isAuth }
+        })
         .when('/auth', {
             templateUrl: 'app/auth/partials/register.html',
             controller: 'authCtrl'

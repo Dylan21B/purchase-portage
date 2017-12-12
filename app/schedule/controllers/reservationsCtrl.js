@@ -1,77 +1,49 @@
-// module to display current reservations in Firebase
 angular
 .module("purchase-portage")
-.factory("reservationsFactory", function ($http) {
-    return Object.create(null, {
-        "cache": {
-            value: null,
-            writable: true
-        },
-        // "current": {
-        //     value: function () {
-        //         return $http({
-        //             method: "GET",
-        //             url: "https://purchase-portage.firebaseio.com/reservations/.json"
-        //         }).then(response => {
-        //             const data = response.data
+.controller("reservationsCtrl", function ($scope, $location, reservationsFactory, invoiceFactory) {
+    $scope.invNeedDelivery = []
+    let allSales = []
+    let allDeliveries = []
+    let needDelivery = []
+    let stillNeedDelivery = []
+    let invoiceToRemove = ""
 
-        //             this.cache = Object.keys(data).map(key => {
-        //                 data[key].id = key
-        //                 return data[key]
-        //             })
+    //  function to remove the customer pick-up tickets
+    function toBeDelivered (ticket) {
+        return ticket.labor > 0
+    }
 
-        //             return this.cache
-        //         })
-        //     }
-        // },
-        // "single": {
-        //     value: function (key) {
-        //         return $http({
-        //             method: "GET",
-        //             url: `https://purchase-portage.firebaseio.com/reservations/${key}/.json`
-        //         }).then(response => {
-        //             return response.data
-        //         })
-        //     }
-        // },
-        // "cancel": {
-        //     value: function (key) {
-        //         return $http({
-        //             method: "DELETE",
-        //             url: `https://purchase-portage.firebaseio.com/reservations/${key}/.json`
-        //         })
-        //     }
-        // },
-        // "find": {
-        //     value: function (searchString) {
-        //         const result = this.cache.find(custDetail => {
-        //             return custDetail.invoice.includes(searchString) ||
-        //                    custDetail.delivery.includes(searchString)
-        //         })
-        //         return result
-        //     }
-        // },
-        // "reserve": {
-        //     value: function (delivery, key) {
-        //         delivery.employmentEnd = Date.now()
+    // function to remove tickets that have already been scheduled for delivery 
+    function removeScheduled (ticket) {
+        return ticket.id !== invoiceToRemove
+    }
 
-        //         return $http({
-        //             method: "PUT",
-        //             url: `https://purchase-portage.firebaseio.com/reservations/${key}/.json`,
-        //             data: delivery
-        //         })
-        //     }
-        // },
-        // "rereservations": {
-        //     value: function (delivery, key) {
-        //         delivery.employmentEnd = Date.now()
+    // Use invoiceFactory to get all invoices from Firebase
+    invoiceFactory.list().then(sales => {
+        allSales = sales
+        // console.log(allSales)
+        let needDelivery = allSales.filter(toBeDelivered)
 
-        //         return $http({
-        //             method: "PUT",
-        //             url: `https://purchase-portage.firebaseio.com/reservations/${key}/.json`,
-        //             data: delivery
-        //         })
-        //     }
-        // }
+        // check to see if there are any reservations
+        // Use reservationsFactory to get all reservations from Firebase
+        reservationsFactory.list().then(deliveries => {
+            allDeliveries = deliveries
+            if (allDeliveries === "Currently no tickets are scheduled for delivery.") {
+                stillNeedDelivery = needDelivery
+                } else {
+
+                    // Cycle through all the reservations/deliveries
+                    allDeliveries.forEach(stop => {
+                        // set the invoice to be removed to be the current resevation in cycle
+                        invoiceToRemove = stop.invoiceID
+                        // remove the scheduled invoice from the remaining arrayu of tickets still needing to be delivered
+                        stillNeedDelivery = needDelivery.filter(removeScheduled)             
+                    });
+                }
+        
+            // set $scope.invNeedDelivery to equal the completely filtered array of stillNeedDelivery
+            console.log(stillNeedDelivery)
+            $scope.invNeedDelivery = stillNeedDelivery               
+        });
     })
 })

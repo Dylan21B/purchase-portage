@@ -165,10 +165,9 @@ angular
         } else {
             $scope.warning.email = " "
         }
-        const purchaseDateFormat = $scope.newInvoice.purchaseDate.getMonth() + " " + $scope.newInvoice.purchaseDate.getDate() + ", " + $scope.newInvoice.purchaseDate.getFullYear()
         const invoice = {
             "invoiceNum": $scope.newInvoice.invoiceNum,
-            "purchaseDate": purchaseDateFormat,
+            "purchaseDate": $scope.newInvoice.purchaseDate,
             "firstName": $scope.newInvoice.firstName,
             "lastName": $scope.newInvoice.lastName,
             "street": $scope.newInvoice.street,
@@ -193,7 +192,9 @@ angular
             $scope.newInvoice.zip = ""
             $scope.newInvoice.phone = ""
             $scope.newInvoice.email = ""
-            $scope.newInvoice.labor = ""
+            $scope.newInvoice.labor = 0
+            $scope.laborHours = "CUSTOMER PICKUP"
+            $scope.laborMinutes = " "
         })
     
         /**
