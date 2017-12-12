@@ -1,0 +1,4 @@
+<h1>{{ date }} Delivery Itinerary</h1>
+<div ng-repeat="interval in timeSlots">
+    {{ timeSlot.start }} - {{ timeSlot.end }}   {{ timeSlot.occupant }} <button type="button" ng-click="bookDelivery()">Book</button>
+</div>
