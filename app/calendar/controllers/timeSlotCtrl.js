@@ -15,7 +15,7 @@ angular
           let dat = new Date();
           
         
-        for (let day = 1; day < 3; day++) {
+        for (let day = 1; day < 24; day++) {
             let currentDate = dat.addDays(day)
             currentDate.setHours(0,0,0,0)
             for (let hour = 8; hour < 17; hour++) {
@@ -28,7 +28,7 @@ angular
                     /**
                      * Use the factory to POST to Firebase
                      */
-                    console.log(timeInterval)
+                    
                     timeSlotFactory.append(timeInterval).then(() => {
                         // alert("2 days of time slots appended to timeSlots database.")
                         console.log("successfully added")              

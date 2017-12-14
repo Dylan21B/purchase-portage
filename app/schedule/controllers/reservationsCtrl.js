@@ -21,7 +21,6 @@ angular
     // Use invoiceFactory to get all invoices from Firebase
     invoiceFactory.list().then(sales => {
         allSales = sales
-        // console.log(allSales)
         let needDelivery = allSales.filter(toBeDelivered)
 
         // check to see if there are any reservations
@@ -42,7 +41,6 @@ angular
                 }
         
             // set $scope.invNeedDelivery to equal the completely filtered array of stillNeedDelivery
-            console.log(stillNeedDelivery)
             $scope.invNeedDelivery = stillNeedDelivery               
         });
     })

@@ -75,10 +75,10 @@ angular
                             let month = (currentDay.getMonth())+1
                             let dayNumber = currentDay.getDate()
                             let day = {
-                                "date": currentDay,
+                                "date": currentDay.getTime(),
                                 "dayOfWeek": dayName,
                                 "month": month,
-                                "dayNumber": currentDay.getDate(),
+                                "dayNumber": dayNumber,
                                 "availableTime": 360
                             }
                             if (deliveryData === "Currently no tickets are scheduled for delivery.") {
@@ -96,7 +96,6 @@ angular
                                 })
                             }
                             $scope.days.push(day)
-                            console.log(day)
                             // Need to convert day data into what the user can understand when displayed. Day needs to be the name of the day. Convert the labor time into hours and minutes
                         }
                         gapResultsEl.classList.remove("hidden")

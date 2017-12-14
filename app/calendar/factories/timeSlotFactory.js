@@ -18,7 +18,13 @@ angular
                     url: "https://purchase-portage.firebaseio.com/timeSlots/.json",
                 }).then(response => {
                     const calendar = response.data
-                    return calendar
+
+                    // capture the Firebase object of objects as an array
+                    this.cache = Object.keys(calendar).map(key => {
+                        calendar[key].id = key
+                        return calendar[key]
+                    })
+                    return this.cache
                 })
             }
         }
