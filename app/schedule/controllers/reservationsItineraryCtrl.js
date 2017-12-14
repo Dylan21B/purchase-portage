@@ -146,7 +146,7 @@ angular
                     dayView.forEach(segment => {
                         testDelivery = segment.id
                         let segmentDateObj = new Date(parseInt(segment.dateTime))
-                        )
+                        
                         let startHour = parseInt(segmentDateObj.getHours())
 
                         if (startHour >= 12) {
@@ -226,4 +226,14 @@ angular
             })
 
         })
+
+        // function tied to book delivery button
+        // $scope.bookDelivery = function () {
+        //     const phoneno = /^\d{10}$/
+        //     const zipno = /^[0-9]{5}(?:-[0-9]{4})?$/
+    
+        //     if ($scope.newInvoice.invoiceNum === undefined) {
+        //         $scope.warning.invoice = "INVOICE # REQUIRED"
+        //         return false
+        //     } else {
     })
