@@ -1,5 +1,53 @@
-<h1>{{ date.dayOfWeek }} {{ date.month }}  {{ date.day }},  {{ date.year }}  Delivery Itinerary</h1>
-<div ng-repeat="interval in intervalArray">
-    <!-- {{ interval.startHour }}:{{ interval.startMin }} - {{ interval.endHour }}:{{ interval.endMin }}   {{ interval.occupant }} {{interval.action}} -->
-    {{ interval.startHour }}:{{ interval.startMin }}  <button>Book Delivery</button>
+<h1>SCHEDULE DELIVERY</h1>
+
+<div>
+    <h4>{{ focusInvoice.firstName }} {{ focusInvoice.lastName }}</h4>   
+    <h5>Invoice #: {{ focusInvoice.invoiceNum }} Purchase Date: {{ focusInvoice.purchaseDate }}</h5>
+    <h5>{{ focusInvoice.street }}</h5>
+    <h5>{{ focusInvoice.city }} {{ focusInvoice.state }}, {{ focusInvoice.zip }}</h5>
+    <!-- Would like to format the displayed phone to (XXX) XXX-XXXX -->
+    <h5>Best Phone #: {{ focusInvoice.phone }}</h5>
+    <h5>Best Email Address: {{ focusInvoice.email }}</h5>
+    <!-- Would like to format the displayed labor time to XX hours XX minutes -->
+    <h5>Estimated Delivery Installation Labor Time: {{ focusInvoice.labor }}</h5>
+    <p>{{ focusInvoice }}</p>
 </div>
+<h5>{{ date.dayOfWeek }} {{ date.month }}  {{ date.day }},  {{ date.year }}  Delivery Itinerary</h5>
+<ul>Select the desired arrival time for the delivery.
+<li id="slot1" ng-mouseenter="brightLabor(1)" ng-click="bookDelivery(1)">08:00am - 08:15am</li>
+<li id="slot2" ng-mouseenter="brightLabor(2)" ng-click="bookDelivery(2)">08:15am - 08:30am</li>
+<li id="slot3" ng-mouseenter="brightLabor(3)" ng-click="bookDelivery(3)">08:30am - 08:45am</li>
+<li id="slot4" ng-mouseenter="brightLabor(4)" ng-click="bookDelivery(4)">08:45am - 09:00am</li>
+<li id="slot5" ng-mouseenter="brightLabor(5)" ng-click="bookDelivery(5)">09:00am - 09:15am</li>
+<li id="slot6" ng-mouseenter="brightLabor(6)" ng-click="bookDelivery(6)">09:15am - 09:30am</li>
+<li id="slot7" ng-mouseenter="brightLabor(7)" ng-click="bookDelivery(7)">09:30am - 09:45am</li>
+<li id="slot8" ng-mouseenter="brightLabor(8)" ng-click="bookDelivery(8)">09:45am - 10:00am</li>
+<li id="slot9" ng-mouseenter="brightLabor(9)" ng-click="bookDelivery(9)">10:00am - 10:15am</li>
+<li id="slot10" ng-mouseenter="brightLabor(10)"ng-click="bookDelivery(10)">10:15am - 10:30am</li>
+<li id="slot11" ng-mouseenter="brightLabor(11)"ng-click="bookDelivery(11)">10:30am - 10:45am</li>
+<li id="slot12" ng-mouseenter="brightLabor(12)"ng-click="bookDelivery(12)">10:45am - 11:00am</li>
+<li id="slot13" ng-mouseenter="brightLabor(13)"ng-click="bookDelivery(13)">11:00am - 11:15am</li>
+<li id="slot14" ng-mouseenter="brightLabor(14)"ng-click="bookDelivery(14)">11:15am - 11:30am</li>
+<li id="slot15" ng-mouseenter="brightLabor(15)"ng-click="bookDelivery(15)">11:30am - 11:45am</li>
+<li id="slot16" ng-mouseenter="brightLabor(16)"ng-click="bookDelivery(16)">11:45am - 12:00pm</li>
+<li id="slot17" ng-mouseenter="brightLabor(17)"ng-click="bookDelivery(17)">12:00pm - 12:15pm</li>
+<li id="slot18" ng-mouseenter="brightLabor(18)"ng-click="bookDelivery(18)">12:15pm - 12:30pm</li>
+<li id="slot19" ng-mouseenter="brightLabor(19)"ng-click="bookDelivery(19)">12:30pm - 12:45pm</li>
+<li id="slot20" ng-mouseenter="brightLabor(20)"ng-click="bookDelivery(20)">12:45pm - 01:00pm</li>
+<li id="slot21" ng-mouseenter="brightLabor(21)"ng-click="bookDelivery(21)">01:00pm - 01:15pm</li>
+<li id="slot22" ng-mouseenter="brightLabor(22)"ng-click="bookDelivery(22)">01:15pm - 01:30pm</li>
+<li id="slot23" ng-mouseenter="brightLabor(23)"ng-click="bookDelivery(23)">01:30pm - 01:45pm</li>
+<li id="slot24" ng-mouseenter="brightLabor(24)"ng-click="bookDelivery(24)">01:45pm - 02:00pm</li>
+<li id="slot25" ng-mouseenter="brightLabor(25)"ng-click="bookDelivery(25)">02:00pm - 02:15pm</li>
+<li id="slot26" ng-mouseenter="brightLabor(26)"ng-click="bookDelivery(26)">02:15pm - 02:30pm</li>
+<li id="slot27" ng-mouseenter="brightLabor(27)"ng-click="bookDelivery(27)">02:30pm - 02:45pm</li>
+<li id="slot28" ng-mouseenter="brightLabor(28)"ng-click="bookDelivery(28)">02:45pm - 03:00pm</li>
+<li id="slot29" ng-mouseenter="brightLabor(29)"ng-click="bookDelivery(29)">03:00pm - 03:15pm</li>
+<li id="slot30" ng-mouseenter="brightLabor(30)"ng-click="bookDelivery(30)">03:15pm - 03:30pm</li>
+<li id="slot31" ng-mouseenter="brightLabor(31)"ng-click="bookDelivery(31)">03:30pm - 03:45pm</li>
+<li id="slot32" ng-mouseenter="brightLabor(32)"ng-click="bookDelivery(32)">03:45pm - 04:00pm</li>
+<li id="slot33" ng-mouseenter="brightLabor(33)"ng-click="bookDelivery(33)">04:00pm - 04:15pm</li>
+<li id="slot34" ng-mouseenter="brightLabor(34)"ng-click="bookDelivery(34)">04:15pm - 04:30pm</li>
+<li id="slot35" ng-mouseenter="brightLabor(35)"ng-click="bookDelivery(35)">04:30pm - 04:45pm</li>
+<li id="slot36" ng-mouseenter="brightLabor(36)"ng-click="bookDelivery(36)">04:45pm - 05:00pm</li>
+</ul>

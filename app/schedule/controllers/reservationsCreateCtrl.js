@@ -21,7 +21,12 @@ angular
 
         // Pull the details from the invoice by identifying the invoice from the URL
         invoiceFactory.detail($routeParams.invoiceID).then(invoice => {
+            let completeInvoice = invoice
+            completeInvoice.invoiceID = $routeParams.invoiceID
             $scope.invoice = invoice
+
+            // put invoice into local storage to use in subsequent partials
+            localStorage.setItem('focusInvoice', JSON.stringify($scope.invoice));
         })
 
         // Tied to the search button
@@ -39,9 +44,9 @@ angular
                 let salesData = {}
                 salesData = sales
 
-                timeSlotFactory.list().then(calendar => {
-                    let timeSlotCalendar = {}
-                    timeSlotCalendar = calendar
+                // timeSlotFactory.list().then(calendar => {
+                //     let timeSlotCalendar = {}
+                //     timeSlotCalendar = calendar
 
                     reservationsFactory.list().then(data => {
                         let deliveryData = data
@@ -101,7 +106,6 @@ angular
                         gapResultsEl.classList.remove("hidden")
                     })
                 })
-            })
         }
     })
     //     $scope.scheduleDelivery = function () {

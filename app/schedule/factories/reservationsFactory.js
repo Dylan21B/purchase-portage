@@ -7,11 +7,11 @@ angular
                 writable: true
             },
             "add": {
-                value: function (appointment) {
+                value: function (newReservation) {
                     return $http({
                         method: "POST",
                         url: "https://purchase-portage.firebaseio.com/reservations/.json",
-                        data: appointment
+                        data: newReservation
                     })
                 }
             },

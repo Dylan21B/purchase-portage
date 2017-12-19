@@ -14,5 +14,5 @@
 <!-- SCHEDULE DELIVERY - List of Invoices that have labor over 0 that are not in the reservations database (no delivery scheduled yet). -->
 <h3>Invoices needing deliveries scheduled:</h3>
     <div ng-repeat="ticket in invNeedDelivery">
-        {{ ticket.invoiceNum }}: {{ ticket.lastName }}, {{ ticket.firstName }} - {{ ticket.city }}, {{ ticket.state }} Labor Time: {{ ticket.labor }} <a href="#!/schedule/delivery/{{ ticket.id }}"> schedule</a>
+        INV#{{ ticket.invoiceNum }}: {{ ticket.lastName }}, {{ ticket.firstName }} - {{ ticket.city }}, {{ ticket.state }} Labor Time: {{ ticket.labor }}minutes labor <a href="#!/schedule/delivery/{{ ticket.id }}"> schedule</a>
     </div>
