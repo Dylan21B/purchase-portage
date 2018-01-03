@@ -1,50 +1,68 @@
-<h2>New Invoice</h2>
-<h6>Enter invoice details</h6>
-<form ng-submit="validateInvoice()">
-    <div>
-        Invoice #: <input type="text" ng-model="newInvoice.invoiceNum">{{ warning.invoice }}
+<article class="bg-info container-fluid">
+    <h2 class="text-center">New Invoice</h2>
+    <h6 class="text-center">Enter invoice details</h6>
+    <div class="bg-info container-fluid">
+
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8 panel panel-primary">
+                <div class=" bg-primary panel-body">
+                    <form ng-submit="validateInvoice()">
+                        <div>
+                            Invoice #:
+                            <input type="text" ng-model="newInvoice.invoiceNum" class="text-primary">{{ warning.invoice }}     Purchase Date:
+                            <input type="date" ng-model="newInvoice.purchaseDate" class="text-primary"> {{ warning.date }}
+                        </div>
+                        <div>
+                            First Name:
+                            <input type="text" ng-model="newInvoice.firstName" class="text-primary"> {{ warning.first }}     Last Name:
+                            <input type="text" ng-model="newInvoice.lastName" class="text-primary"> {{ warning.last }}
+                        </div>
+                        <div>
+                            Street Address:
+                            <input type="text" size="65" ng-model="newInvoice.street" class="text-primary"> {{ warning.street }}
+                        </div>
+                        <div>
+                            City:
+                            <input type="text" size="20" ng-model="newInvoice.city" class="text-primary"> {{ warning.city }}     State:
+                            <select id="state" ng-model="newInvoice.state" class="text-primary"> {{ warning.state }}
+                                <option value="AL">AL</option>
+                                <option value="GA">GA</option>
+                                <option value="KY">KY</option>
+                                <option value="MO">MO</option>
+                                <option value="MS">MS</option>
+                                <option value="NC">NC</option>
+                                <option value="SC">SC</option>
+                                <option value="TN" selected>TN</option>
+                                <option value="VA">VA</option>
+                            </select>
+                            Zip Code:
+                            <input type="text" size="5" ng-model="newInvoice.zip" class="text-primary"> {{ warning.zip }}
+                        </div>
+                        <div>
+                            Best Phone #:
+                            <input type="tel" placeholder="5553334444" ng-model="newInvoice.phone" class="text-primary"> {{ warning.phone }}     Best Email:
+                            <input type="email" placeholder="username@domain.com" ng-model="newInvoice.email" class="text-primary"> {{ warning.email }}
+                        </div>
+                        <!-- I need to style the buttons and display -->
+                        <div>
+                            <p></p>
+                            <p>Estimated Installation Labor Time (15 minute intervals - 0 indicates customer pickup)</p>
+                            <div class="row">
+                                <div class="col-sm-4"></div>
+                                <div class="col-sm-4">
+                                    <button type="button" class = "btn btn-success" ng-click="addLaborTime()">+</button> {{ laborHours }} {{ laborMinutes}}
+                                    <button type="button" class = "btn btn-danger" ng-click="minusLaborTime()">-</button>
+                                </div>
+                                <div class="col-sm-4"></div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-info">Enter Invoice</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+        <p></p>
     </div>
-    <div>
-        Purchase Date: <input type="date" ng-model="newInvoice.purchaseDate"> {{ warning.date }}
-    </div>
-    <div>
-        First Name: <input type="text" ng-model="newInvoice.firstName"> {{ warning.first }}
-    </div>
-    <div>
-        Last Name: <input type="text" ng-model="newInvoice.lastName"> {{ warning.last }}
-    </div>
-    <div>
-        Street Address: <input type="text" ng-model="newInvoice.street"> {{ warning.street }}
-    </div>
-    <div>
-        City: <input type="text" ng-model="newInvoice.city"> {{ warning.city }}
-    </div>
-    <div>
-        State: <select id="state" ng-model="newInvoice.state"> {{ warning.state }}
-                <option value="AL">AL</option>
-                <option value="GA">GA</option>
-                <option value="KY">KY</option>
-                <option value="MO">MO</option>
-                <option value="MS">MS</option>
-                <option value="NC">NC</option>
-                <option value="SC">SC</option>
-                <option value="TN" selected>TN</option>
-                <option value="VA">VA</option>
-              </select>          
-    </div>
-    <div>
-        Zip Code: <input type="text" ng-model="newInvoice.zip"> {{ warning.zip }}
-    </div>
-    <div>
-        Best Phone #: <input type="tel" placeholder="5553334444" ng-model="newInvoice.phone"> {{ warning.phone }}
-    </div>
-    <div>
-        Best Email: <input type="email" placeholder="username@domain.com" ng-model="newInvoice.email"> {{ warning.email }}
-    </div>
-    <!-- I need to style the buttons and display -->
-    <div>
-        <p>Estimated Installation Labor Time (15 minute intervals - 0 indicates customer pickup)</p>
-        <button type="button" ng-click="addLaborTime()">+</button> {{ laborHours }} {{ laborMinutes}}<button type="button" ng-click="minusLaborTime()">-</button>
-    </div>
-    <button type="submit">Enter Invoice</button>
-</form>
+</article>

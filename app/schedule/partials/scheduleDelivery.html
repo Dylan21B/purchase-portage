@@ -1,22 +1,49 @@
-<h1>SCHEDULE DELIVERY</h1>
+<article class="bg-info">
+    <h1 class="bg-info text-center">SCHEDULE DELIVERY</h1>
 
-<div>
-    <h3>{{ invoice.firstName }} {{ invoice.lastName }}</h3>   
-    <p>Invoice #: {{ invoice.invoiceNum }} Purchase Date: {{ invoice.purchaseDate }}</p>
-    <p>{{ invoice.street }}</p>
-    <p>{{ invoice.city }} {{ invoice.state }}, {{ invoice.zip }}</p>
-    <!-- Would like to format the displayed phone to (XXX) XXX-XXXX -->
-    <p>Best Phone #: {{ invoice.phone }}</p>
-    <p>Best Email Address: {{ invoice.email }}</p>
-    <!-- Would like to format the displayed labor time to XX hours XX minutes -->
-    <p>Estimated Delivery Installation Labor Time: {{ invoice.labor }}</p>
-</div>
+    <div class="bg-info container-fluid">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4 panel panel-primary">
+                <div class=" bg-primary panel-body">
+                    <h3 class="bg-primary text-center">{{ invoice.firstName }} {{ invoice.lastName }}</h3>
+                    <p class="bg-primary">Invoice #: {{ invoice.invoiceNum }} Purchase Date: {{ invoice.purchaseDate }}</p>
+                    <p class="bg-primary">{{ invoice.street }}</p>
+                    <p class="bg-primary">{{ invoice.city }} {{ invoice.state }}, {{ invoice.zip }}</p>
+                    <!-- Would like to format the displayed phone to (XXX) XXX-XXXX -->
+                    <p class="bg-primary">Best Phone #: {{ invoice.phone }}</p>
+                    <p class="bg-primary">Best Email Address: {{ invoice.email }}</p>
+                    <!-- Would like to format the displayed labor time to XX hours XX minutes -->
+                    <p class="bg-primary">Estimated Delivery Installation Labor Time: {{ invoice.labor }}</p>
+                </div>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
 
-<div>
-    Select the how far out to display availability: <input type="date" ng-model="endDate">
-    <button type="button" ng-click="searchAvailability()">Search</button>
-    <div id="gapResults" class="hidden">Available time in each day::</div>
-</div>
-<div ng-repeat="day in days">
-        {{ day.dayOfWeek }} {{ day.month }}/{{ day.dayNumber }} Total Available Time: {{ day.availableTime }} <a href="#!/schedule/itinerary/{{ day.date }}">View Day</a>
-</div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                Select the how far out to display availability:
+                <input type="date" ng-model="endDate">
+                <button type="button" ng-click="searchAvailability()">Search</button>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+        <div id="gapResults" class="hidden">Available time in each day:</div>
+        <div class="row">
+            <div ng-repeat="day in days">
+
+                <div class="col-sm-2">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+                            {{ day.dayOfWeek }} {{ day.month }}/{{ day.dayNumber }} Total Available Time: {{ day.availableTime }}
+                            <a href="#!/schedule/itinerary/{{ day.date }}">View Day</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

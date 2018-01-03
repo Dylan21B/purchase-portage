@@ -1,18 +1,112 @@
-<h2>Current Schedule</h2>
-<br>
-<p>This Week</p>
-<p>Sunday through Saturday</p>
-<p> UNDER CONSTRUCTION</p>
-
-<!-- CURRENT WEEK - paginate by week showing the last name, city, and invoice of 
-    each delivery. Remaining hours available showing at bottom of each day. -->
-
-    <!-- <div ng-repeat="apointment in reservations">
-        <a href="#!/employees/detail/{{ person.id }}">{{ person.firstName }} {{ person.lastName }}</a>
-    </div> -->
-    
-<!-- SCHEDULE DELIVERY - List of Invoices that have labor over 0 that are not in the reservations database (no delivery scheduled yet). -->
-<h3>Invoices needing deliveries scheduled:</h3>
-    <div ng-repeat="ticket in invNeedDelivery">
-        INV#{{ ticket.invoiceNum }}: {{ ticket.lastName }}, {{ ticket.firstName }} - {{ ticket.city }}, {{ ticket.state }} Labor Time: {{ ticket.labor }}minutes labor <a href="#!/schedule/delivery/{{ ticket.id }}"> schedule</a>
+<article class="bg-info container-fluid">
+    <div class="row">
+        <h3 class="text-center">Next 6 Days Schedule</h3>
+        <br>
     </div>
+    <div class="row">
+        <!-- CURRENT WEEK - showing the last name, city, and invoice of 
+    each delivery. Remaining minutes available showing at bottom of each day. -->
+        <!-- <section id="left-gap" class="col-sm-3">
+        </section> -->
+        <section id="day0" class="col-sm-2">
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                    {{ day0.name }} {{ day0.month }}/{{ day0.day }}
+                    <br>Remaining minutes for deliveries: {{ day0.hours }}
+                    <div ng-repeat="stop in day0Deliveries">
+                        <a href="#">{{ stop.lastName }} {{ stop.city }} {{ stop.invoiceNum }}</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="day1" class="col-sm-2">
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                    {{ day1.name }} {{ day1.month }}/{{ day1.day }}
+                    <br>Remaining minutes for deliveries: {{ day1.hours }}
+                    <div ng-repeat="stop in day1Deliveries">
+                        <a href="#">{{ stop.lastName }} {{ stop.city }} {{ stop.invoiceNum }}</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="day2" class="col-sm-2">
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                    {{ day2.name }} {{ day2.month }}/{{ day2.day }}
+                    <br>Remaining minutes for deliveries: {{ day2.hours }}
+                    <div ng-repeat="stop in day2Deliveries">
+                        <a href="#">{{ stop.lastName }} {{ stop.city }} {{ stop.invoiceNum }}</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="day3" class="col-sm-2">
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                    {{ day3.name }} {{ day3.month }}/{{ day3.day }}
+                    <br>Remaining minutes for deliveries: {{ day3.hours }}
+                    <div ng-repeat="stop in day3Deliveries">
+                        <a href="#">{{ stop.lastName }} {{ stop.city }} {{ stop.invoiceNum }}</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="day4" class="col-sm-2">
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                    {{ day4.name }} {{ day4.month }}/{{ day4.day }}
+                    <br>Remaining minutes for deliveries: {{ day4.hours }}
+                    <div ng-repeat="stop in day4Deliveries">
+                        <a href="#">{{ stop.lastName }} {{ stop.city }} {{ stop.invoiceNum }}</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="day5" class="col-sm-2">
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                    {{ day5.name }} {{ day5.month }}/{{ day5.day }}
+                    <br>Remaining minutes for deliveries: {{ day5.hours }}
+                    <div ng-repeat="stop in day5Deliveries">
+                        <a href="#">{{ stop.lastName }} {{ stop.city }} {{ stop.invoiceNum }}</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- <section id="day6" class="col-sm-2">
+            {{ day6.name }} {{ day6.month }}/{{ day6.day }} <br>Remaining minutes for deliveries: {{ day6.hours }}
+            <div ng-repeat="stop in day6Deliveries">
+                <a href="#">{{ stop.lastName }} {{ stop.city }} {{ stop.invoiceNum }}</a>
+            </div>
+        </section> -->
+        <!-- <section id="right-gap" class="col-sm-1">
+        </section> -->
+    </div>
+</article>
+<article class="bg-info container-fluid">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <!-- SCHEDULE DELIVERY - List of Invoices that have labor over 0 that are not in the reservations database (no delivery scheduled yet). -->
+            <h3 class="text-center">Invoices needing deliveries scheduled:</h3>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <div ng-repeat="ticket in invNeedDelivery" class="well-sm">
+                        <div class="panel panel-danger">
+                            <div class="panel-body bg-danger">
+                                #{{ ticket.invoiceNum }}: {{ ticket.firstName }} {{ ticket.lastName }}<br>
+                                {{ ticket.city }}, {{ ticket.state }}<br>
+                                Labor Time: {{ ticket.labor }} minutes labor
+                                <a href="#!/schedule/delivery/{{ ticket.id }}" class="label label-success"> schedule</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4"></div>
+</article>

@@ -1,6 +1,9 @@
 angular
     .module("purchase-portage")
     .controller("reservationsCreateCtrl", function ($scope, $routeParams, timeSlotFactory, reservationsFactory, invoiceFactory) {
+        let salesData = []
+        let deliveryData = []
+        
         let dat = new Date();
         Date.prototype.addDays = function (days) {
             let dat = new Date(this.valueOf());
@@ -41,7 +44,6 @@ angular
 
             // function to make an array of reservationIDs between tomorrow and the search end date. From that array sum the labor time of the invoices related sharing the same month and cardinal day. Then display the available time remaining for each day (480 - 60 - 60 - sumoflabor). 480-s the 8 hour delivery day. 60 minutes is the lunch time. 60 minutes is the allowed 30 minute drive time to and from the delivery.
             invoiceFactory.list().then(sales => {
-                let salesData = {}
                 salesData = sales
 
                 // timeSlotFactory.list().then(calendar => {
@@ -49,7 +51,7 @@ angular
                 //     timeSlotCalendar = calendar
 
                     reservationsFactory.list().then(data => {
-                        let deliveryData = data
+                        deliveryData = data
 
                         for (let i = 0; i < searchDays; i++) {
                             let currentDay = tomorrow.addDays(i)
@@ -89,10 +91,11 @@ angular
                             if (deliveryData === "Currently no tickets are scheduled for delivery.") {
                                 console.log(deliveryData)
                             } else {
-
+                                console.log(deliveryData)
+                                console.log(salesData)
                                 deliveryData.forEach(delivery => {
-                                    let checkInvoice = salesData(delivery.invoiceID)
-                                    let checkFullDay = deliveryData(delivery.timeSlotID)
+                                    let checkInvoice = salesData[delivery.invoiceID]
+                                    let checkFullDay = new Date(parseInt(deliveryData[delivery.timeSlot]))
                                     let checkShortDay = checkFullDay.setHours(0, 0, 0, 0)
 
                                     if (checkShortDay.dateTime === currentDay) {

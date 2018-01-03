@@ -4,6 +4,7 @@ angular
         // pull the data of the invoice in local storage to display at the top of the pageYOffset
         $scope.focusInvoice = (JSON.parse(localStorage.getItem('focusInvoice')))
         // need to pull delivery list then filter to the day in the URL
+        
         // sort the deliveries by timeSlot (start time)
         // loop through all the time slots in a day
         // nest a loop through the deliveries in the day
@@ -289,8 +290,10 @@ angular
             }
             
             // use the reservationsFactory to post a new delivery with the newStart as the dateTime
-            reservationsFactory.add(newReservation).then(() => {
-                alert("DELIVERY BOOKED")
+            reservationsFactory.add(newReservation).then((booking) => {
+                let postDelivery = new Date(parseInt(booking.timeSlot))
+                let pDel = postDelivery.toString('MM/dd/yy HH:mm:ss')
+                alert("DELIVERY BOOKED FOR ", postDelivery)
             })
             
         }
